@@ -1,0 +1,21 @@
+{
+    "name": "userprofile",
+    "description": "User profile extension for bolt users.",
+    "type": "bolt-extension",
+    "keywords": [],
+    "require": {
+        "bolt/bolt": "^3.2"
+    },
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Bolt\\Extension\\Bobdenotter\\Chmodinator\\": "src"
+        }
+    },
+    "extra": {
+        "bolt-assets": "web",
+        "bolt-class": "Bolt\\Extension\\Bobdenotter\\Chmodinator\\ChmodinatorExtension"
+    }
+}
