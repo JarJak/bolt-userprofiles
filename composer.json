@@ -11,11 +11,11 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Bolt\\Extension\\Bobdenotter\\Chmodinator\\": "src"
+            "Bolt\\Extension\\UserProfile\\": "src"
         }
     },
     "extra": {
         "bolt-assets": "web",
-        "bolt-class": "Bolt\\Extension\\Bobdenotter\\Chmodinator\\ChmodinatorExtension"
+        "bolt-class": "Bolt\\Extension\\UserProfile\\UserProfileExtension"
     }
 }
