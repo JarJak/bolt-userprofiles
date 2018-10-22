@@ -11,7 +11,7 @@ use Bolt\Extension\SimpleExtension;
 use Bolt\Menu\MenuEntry;
 use Silex\Application;
 
-class UserProfileExtension extends SimpleExtension
+class UserProfilesExtension extends SimpleExtension
 {
     use DatabaseSchemaTrait;
 
