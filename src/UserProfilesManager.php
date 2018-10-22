@@ -1,6 +1,8 @@
-<?php  declare(strict_types=1);
+<?php
 
-namespace Bolt\Extension\UserProfile;
+declare(strict_types=1);
+
+namespace Bolt\Extension\JarJak\UserProfiles;
 
 use Bolt\Storage\Database\Connection;
 
@@ -13,9 +15,9 @@ class UserProfilesManager
         $this->db = $db;
     }
 
-    public function updateProfile(string $avatar, string $description, int $id)
+    public function updateProfile(string $avatar, string $description, int $id): void
     {
-        $query = "UPDATE bolt_users SET avatar = :avatar, description = :description WHERE id = :id";
+        $query = 'UPDATE bolt_users SET avatar = :avatar, description = :description WHERE id = :id';
 
         $stmt = $this->db->prepare($query);
         $stmt->bindValue('avatar', $avatar);

@@ -1,11 +1,13 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace Bolt\Extension\UserProfile;
+declare(strict_types=1);
+
+namespace Bolt\Extension\JarJak\UserProfiles;
 
 use Bolt\Extension\DatabaseSchemaTrait;
+use Bolt\Extension\JarJak\UserProfiles\Controller\UserProfileController;
+use Bolt\Extension\JarJak\UserProfiles\Storage\Schema\Table\UsersTable;
 use Bolt\Extension\SimpleExtension;
-use Bolt\Extension\UserProfile\Controller\UserProfileController;
-use Bolt\Extension\UserProfile\Storage\Schema\Table\UsersTable;
 use Bolt\Menu\MenuEntry;
 use Silex\Application;
 
@@ -20,7 +22,7 @@ class UserProfileExtension extends SimpleExtension
         ];
     }
 
-    protected function registerServices(Application $app)
+    protected function registerServices(Application $app): void
     {
         $this->registerUsersTableSchema($app);
 
@@ -29,12 +31,11 @@ class UserProfileExtension extends SimpleExtension
         });
     }
 
-    private function registerUsersTableSchema(Application $app)
+    private function registerUsersTableSchema(Application $app): void
     {
-        $config = $this->getConfig();
         $app['schema.base_tables'] = $app->extend(
             'schema.base_tables',
-            function ($baseTables) use ($app, $config) {
+            function ($baseTables) use ($app) {
                 $platform = $app['db']->getDatabasePlatform();
                 $prefix = $app['schema.prefix'];
                 $baseTables['users'] = $app->share(function () use ($platform, $prefix) {
@@ -49,8 +50,7 @@ class UserProfileExtension extends SimpleExtension
         $menu = new MenuEntry('user-profiles', 'user-profiles');
         $menu->setLabel('Profile autorów')
             ->setIcon('fa:rocket')
-            ->setPermission('userprofile')
-        ;
+            ->setPermission('userprofile');
 
         return [
             $menu,
@@ -61,9 +61,9 @@ class UserProfileExtension extends SimpleExtension
     {
         return [
             'templates/bolt' => [
-                'position'  => 'prepend',
-                'namespace' => 'bolt'
-            ]
+                'position' => 'prepend',
+                'namespace' => 'bolt',
+            ],
         ];
     }
 }

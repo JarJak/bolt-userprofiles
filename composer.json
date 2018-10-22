@@ -1,21 +1,42 @@
 {
-    "name": "userprofile",
-    "description": "User profile extension for bolt users.",
+    "name": "jarjak/bolt-userprofiles",
+    "description": "User profiles extension for Bolt CMS.",
     "type": "bolt-extension",
-    "keywords": [],
+    "keywords": [
+        "users",
+        "user-profiles"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcin Pruciak",
+            "email": "marcin.pruciak@bluecoin.pl"
+        },
+        {
+            "name": "Jarek Jakubowski",
+            "email": "egger1991@gmail.com"
+        }
+    ],
     "require": {
         "bolt/bolt": "^3.2"
     },
-    "license": "MIT",
+    "config": {
+        "platform": {
+            "php": "7.0"
+        }
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Bolt\\Extension\\UserProfile\\": "src"
+            "Bolt\\Extension\\JarJak\\UserProfiles\\": "src"
         }
     },
     "extra": {
+        "branch-alias": {
+            "dev-master" : "1.0.x-dev"
+        },
         "bolt-assets": "web",
-        "bolt-class": "Bolt\\Extension\\UserProfile\\UserProfileExtension"
+        "bolt-class": "Bolt\\Extension\\JarJak\\UserProfiles\\UserProfilesExtension"
     }
 }
